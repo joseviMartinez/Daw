@@ -14,6 +14,10 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
@@ -22,6 +26,8 @@ import javax.swing.SwingConstants;
 public class fichapolicia extends JFrame {
 
 	//Elementos de la pantalla
+	Connection conexion = null; //maneja la conexión
+	Statement instruccion = null;// instrucción de consulta
 	private JPanel contentPane;
 	private JTextField Nombre;
 	private JTextField Edad;
@@ -52,6 +58,24 @@ public class fichapolicia extends JFrame {
 	 * Create the frame.
 	 */
 	public fichapolicia() {
+		//try{
+		//	Class.forName("com.mysql.jdbc.Driver");
+			
+			//Class.forName("com.mysql.jdbc.Driver");
+			// establece la conexión a la base de datos
+			//conexion = DriverManager.getConnection("jdbc:mysql://localhost/fichapolicia","root","");
+			// crea objeto Statement para consultar la base de datos
+			//instruccion = (Statement) conexion.createStatement();
+			// insercion en base de datos
+			//String Instrucction="INSERT INTO policia  (Dni,Nombre,Edad,Crimen,Altura) VALUES("+Nombre+"','"+Edad+"','"+Crimen+"','"+Altura+")";
+			//instruccion.executeUpdate
+			//catch( SQLException excepcionSql ){
+			//excepcionSql.printStackTrace();
+		//}// fin de catch
+			//catch( ClassNotFoundException noEncontroClase )
+			//{
+			//	noEncontroClase.printStackTrace();
+//			}// fin de catch
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 364);
@@ -164,7 +188,6 @@ public class fichapolicia extends JFrame {
 		JButton Borrar = new JButton("Borrar");
 		Borrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 			delincuentes.removeItem(delincuentes.getItemAt(delincuentes.getSelectedIndex()));
 			}
 		});
@@ -176,6 +199,7 @@ public class fichapolicia extends JFrame {
 		delincuentes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				delin=delincuentes.getItemAt(delincuentes.getSelectedIndex());
+				
 				Nombre.setText(String.valueOf(delin.cogerNombre()));
 				Edad.setText(String.valueOf(delin.cogeredad()));
 				Altura.setText(String.valueOf(delin.cogeraltura()));

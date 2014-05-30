@@ -2,6 +2,7 @@ package policia2;
 
 public class delincuente {
 	// creamos las variables
+	private String Dnidelincuente;
 	private String Nombredelincuente;
 	private String Apellidosdelincuente;
 	private int Edaddelincuente;
@@ -18,6 +19,12 @@ public class delincuente {
 
 	}
 	// creamos los metodos
+	public void guardaDni(String Dni){
+		Dnidelincuente=Dni;
+	}
+	public String cogerDni(){
+		return Dnidelincuente;
+	}
 	public void guardaNombre(String nom){
 		Nombredelincuente=nom;
 	}
