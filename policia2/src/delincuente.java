@@ -1,4 +1,4 @@
-package policia2;
+
 
 public class delincuente {
 	// creamos las variables
